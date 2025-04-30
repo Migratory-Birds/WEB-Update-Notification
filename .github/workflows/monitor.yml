@@ -17,8 +17,7 @@ jobs:
       - name: Compare with Previous Version
         run: |
           if [ -f website_previous.html ]; then
-            diff website_previous.html website.html || echo "Website updated!"
-            curl -H "Content-Type: application/json" \
+            diff website_previous.html website.html || curl -H "Content-Type: application/json" \
                -X POST \
                -d '{"content": "Webサイトに変更が検出されました！"}' \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
