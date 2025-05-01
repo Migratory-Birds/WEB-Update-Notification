@@ -11,8 +11,12 @@ jobs:
     steps:
       # - name: Checkout repository
       #  uses: actions/checkout@v3
+
+        
       - name: Set Current Date
-        run: echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
+        run: |
+          TZ=Asia/Tokyo
+          echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
 
       - name: Create File with Date
         run: touch "file_${CURRENT_DATE}.txt"
