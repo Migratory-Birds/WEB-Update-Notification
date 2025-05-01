@@ -11,16 +11,21 @@ jobs:
     steps:
       # - name: Checkout repository
       #  uses: actions/checkout@v3
+      - name: Set Current Date
+        run: echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Create File with Date
+        run: touch "file_${CURRENT_DATE}.txt"
 
       - name: Fetch Website Content
-        run: curl -sL https://www.elegaku.com/cast/schedule/ > website.html
+        run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website_${CURRENT_DATE}.html
 
       - name: Compare with Previous Version
         run: |
-          if [ -f website_previous.html ]; then
-            diff website_previous.html website.html || curl -H "Content-Type: application/json" \
+          if [ -f website_previous_${CURRENT_DATE}.html ]; then
+            diff website_previous_${CURRENT_DATE}.html website_${CURRENT_DATE}.html || curl -H "Content-Type: application/json" \
                -X POST \
-               -d '{"content": "Webサイトに変更が検出されました！"}' \
+               -d '{"content": "スケジュールが更新されました。"}' \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
           fi
-          mv website.html website_previous.html
+          mv website.html website_previous_${CURRENT_DATE}.html
