@@ -19,17 +19,17 @@ jobs:
           echo "CURRENT_DATE=$(date '+%Y-%m-%d')"
 
       - name: Create File with Date
-        run: touch "file_$CURRENT_DATE.txt"
+        run: touch "file_$(date +%Y%m%d).txt"
 
       - name: Fetch Website Content
-        run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > "website_$CURRENT_DATE.html"
+        run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > "website_$(date +%Y%m%d).html"
 
       - name: Compare with Previous Version
         run: |
-          if [ -f "website_previous_$CURRENT_DATE.html" ]; then
-            diff "website_previous_$CURRENT_DATE.html" "website_$CURRENT_DATE.html" || curl -H "Content-Type: application/json" \
+          if [ -f "website_previous_$(date +%Y%m%d).html" ]; then
+            diff "website_previous_$(date +%Y%m%d).html" "website_$(date +%Y%m%d).html" || curl -H "Content-Type: application/json" \
                -X POST \
                -d '{"content": "スケジュールが更新されました。"}' \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
           fi
-          mv "website_$CURRENT_DATE.html" "website_previous_$CURRENT_DATE.html"
+          mv "website_$(date +%Y%m%d).html" "website_previous_$(date +%Y%m%d).html"
