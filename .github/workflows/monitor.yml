@@ -3,6 +3,7 @@ name: Monitor Website
 on:
   schedule:
     - cron: '*/10 * * * *'  # 10分ごとに実行
+  workflow_dispatch:
 
 jobs:
   check_website:
