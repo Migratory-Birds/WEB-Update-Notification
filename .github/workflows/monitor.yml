@@ -2,7 +2,9 @@ name: Monitor Website
 
 on:
   schedule:
-    - cron: '*/5 8-20 * * *'  # 10分ごとに実行
+    - cron: '*/5 23 * * *'    # 5分ごとに実行 (日本時間 8:00)
+    - cron: '*/5 0-11 * * *'  # 5分ごとに実行 (日本時間 9:00～20:00)
+    # - cron: '*/5 8-20 * * *'  # 10分ごとに実行
   workflow_dispatch:
 
 jobs:
@@ -22,14 +24,15 @@ jobs:
         run: touch file_$(date +%Y%m%d).txt
 
       - name: Fetch Website Content
-        run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website_$(date +%Y%m%d).html
+        # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website_$(date +%Y%m%d).html
+        run: curl -sL https://www.elegaku.com/cast/schedule/castCode/369619 > website_$(date +%Y%m%d).html
 
       - name: Compare with Previous Version
         run: |
           if [ -f website_previous_$(date +%Y%m%d).html ]; then
             diff website_previous_$(date +%Y%m%d).html website_$(date +%Y%m%d).html || curl -H "Content-Type: application/json" \
                -X POST \
-               -d "a{\"content\": \"update\"}" \
+               -d "a{\"content\": \"nishimura - update\"}" \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
           fi
           mv website_$(date +%Y%m%d).html website_previous_$(date +%Y%m%d).html
