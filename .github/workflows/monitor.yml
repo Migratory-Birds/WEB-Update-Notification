@@ -2,7 +2,7 @@ name: Monitor Website
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # 10分ごとに実行
+    - cron: '*/5 8-20 * * *'  # 10分ごとに実行
   workflow_dispatch:
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
           if [ -f website_previous_$(date +%Y%m%d).html ]; then
             diff website_previous_$(date +%Y%m%d).html website_$(date +%Y%m%d).html || curl -H "Content-Type: application/json" \
                -X POST \
-               -d '{"content": "スケジュールが更新されました。"}' \
+               -d "a{\"content\": \"update\"}" \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
           fi
           mv website_$(date +%Y%m%d).html website_previous_$(date +%Y%m%d).html
