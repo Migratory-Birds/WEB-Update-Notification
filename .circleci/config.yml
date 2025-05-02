@@ -32,6 +32,7 @@ jobs:
             if [ -f website_previous.html ]; then
               if diff -B website_previous.html website.html | grep 'class.*' >/dev/null; then
                 echo "Changes found"
+                diff -B website_previous.html website.html | grep 'class.*'
                 curl -H "Content-Type: application/json" \
                  -X POST \
                  -d '{"content": "update web (circleci)"}' \
