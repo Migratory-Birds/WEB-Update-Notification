@@ -31,7 +31,7 @@ jobs:
           gh auth status
           RUN_ID=$(gh run list --limit 1 --json databaseId --jq ".[0].databaseId") >> $GITHUB_ENV
           echo $RUN_ID
-          gh run download $(gh run list --limit 1 --json databaseId --jq ".[0].databaseId")
+        #  gh run download $(gh run list --limit 1 --json databaseId --jq ".[0].databaseId")
         #  gh run download $RUN_ID --repo Migratory-Birds/WEB-Update-Notification
         # curl https://github.com/Migratory-Birds/WEB-Update-Notification/actions/runs/14789915795/artifacts/3048918668
         env:
@@ -39,7 +39,7 @@ jobs:
         continue-on-error: true
 
       - name: Fetch Website Content
-        # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
+        # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/352662 > website.html
         run: |
           curl -sL https://www.elegaku.com/cast/schedule/castCode/369180 > website.html
           
@@ -55,7 +55,7 @@ jobs:
                -d "a{\"content\": \"nishimura - update\"}" \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
           fi
-          
+
           mv website.html website_previous.html
           git config --global user.email "GitHubActions@example.com"
           git config --global user.name "GitHub Actions"
