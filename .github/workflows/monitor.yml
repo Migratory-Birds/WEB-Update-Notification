@@ -48,8 +48,8 @@ jobs:
           echo 100
           if [ -f website_previous.html ]; then
             echo 200
-            diff website_previous.html website.html
-            if diff website_previous.html website.html >/dev/null; then
+            diff -B website_previous.html website.html
+            if diff -B website_previous.html website.html >/dev/null; then
               echo 300
               echo "No changes detected."
             else
