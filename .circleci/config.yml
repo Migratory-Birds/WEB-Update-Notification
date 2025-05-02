@@ -24,8 +24,7 @@ jobs:
             echo "CURRENT_DATE=$(date '+%Y-%m-%d')"
 
             pwd
-            chown -R $USER:$USER
-            
+            chown -R $USER:$USER /home/circleci/project
             curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
 
             if [ -f website_previous.html ]; then
