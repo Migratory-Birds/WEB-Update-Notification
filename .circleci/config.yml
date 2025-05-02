@@ -21,13 +21,28 @@ jobs:
           name: Check website updates
           command: |
             TZ=Asia/Tokyo
-            echo $(date '+%Y-%m-%d')
-            echo "CURRENT_DATE=$(date '+%Y-%m-%d')"
-            curl -sL https://www.elegaku.com/cast/schedule/castCode/369619 > website_$(date +%Y%m%d).html
-            if [ -f website_previous_$(date +%Y%m%d).html ]; then
-            diff website_previous_$(date +%Y%m%d).html website_$(date +%Y%m%d).html || curl -H "Content-Type: application/json" \
-              -X POST \
-              -d "a{\"content\": \"nishimura - update circleci \"}" \
-              https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
+            echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
+
+            curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
+
+            if [ -f website_previous.html ]; then
+              if diff -B website_previous.html website.html | grep 'class.*' >/dev/null; then
+                echo "Changes found"
+                curl -H "Content-Type: application/json" \
+                 -X POST \
+                 -d '{"content": "update web"}' \
+                 https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
+              else
+                echo "No changes detected."
+              fi
             fi
-            mv website_$(date +%Y%m%d).html website_previous_$(date +%Y%m%d).html
+            mv website.html website_previous.html
+
+            git config --global user.email "GitHubActions@example.com"
+            git config --global user.name "GitHub Actions"
+
+            git add .
+            git commit -m "Automated commit from GitHub Actions"
+            git push origin main
+
+            
