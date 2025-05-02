@@ -25,19 +25,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Get latest workflow run ID
-        run: |
-          pwd
-          gh auth status
-          RUN_ID=$(gh run list --limit 1 --json databaseId --jq ".[0].databaseId") >> $GITHUB_ENV
-          echo $RUN_ID
-        #  gh run download $(gh run list --limit 1 --json databaseId --jq ".[0].databaseId")
-        #  gh run download $RUN_ID --repo Migratory-Birds/WEB-Update-Notification
-        # curl https://github.com/Migratory-Birds/WEB-Update-Notification/actions/runs/14789915795/artifacts/3048918668
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: true
-
       - name: Fetch Website Content
         # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/352662 > website.html
         run: |
@@ -48,18 +35,17 @@ jobs:
           echo 100
           if [ -f website_previous.html ]; then
             echo 200
-            echo 201
 
             if diff -B website_previous.html website.html | grep 'class.*' >/dev/null; then
               echo 300
-              echo "No changes detected."
-            else
-              echo 400
               echo "Changes found, taking action..."
               curl -H "Content-Type: application/json" \
                -X POST \
                -d '{"content": "update"}' \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
+            else
+              echo 400
+              echo "No changes detected."
             fi
           fi
 
