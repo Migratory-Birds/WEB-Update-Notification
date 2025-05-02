@@ -43,5 +43,5 @@ jobs:
       - name: Upload HTML
         uses: actions/upload-artifact@v4
         with: 
-          name: website.html
-          path: website_previous.html
+          name: website_previous.html
+          path: website.html
