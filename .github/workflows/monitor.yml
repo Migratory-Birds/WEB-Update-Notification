@@ -50,10 +50,17 @@ jobs:
           echo 100
           if [ -f website_previous.html ]; then
             echo 200
-            diff website_previous.html website.html || curl -H "Content-Type: application/json" \
+            if diff website_previous.html website.html >/dev/null; then
+              echo 300
+              echo "No changes detected."
+            else
+              echo 400
+              echo "Changes found, taking action..."
+              curl -H "Content-Type: application/json" \
                -X POST \
-               -d "a{\"content\": \"nishimura - update\"}" \
+               -d 'a{"content": "update"}' \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
+            fi
           fi
 
           mv website.html website_previous.html
