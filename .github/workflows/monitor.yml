@@ -10,6 +10,11 @@ on:
 jobs:
   check_website:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+      
+
     steps:
 
       - name: Set Current Date
