@@ -43,23 +43,26 @@ jobs:
         run: |
           curl -sL https://www.elegaku.com/cast/schedule/castCode/369180 > website.html
           
-          git config --global user.email "GitHubActions@example.com"
-          git config --global user.name "GitHub Actions"
-          
-          git add .
-          git commit -m "Automated commit from GitHub Actions"
-          git push origin main
+
 
       - name: Compare with Previous Version
         run: |
           echo 100
-          if [ -f previous/website.html ]; then
+          if [ -f website_previous.html ]; then
             echo 200
-            diff previous/website.html website.html || curl -H "Content-Type: application/json" \
+            diff website_previous.html website.html || curl -H "Content-Type: application/json" \
                -X POST \
                -d "a{\"content\": \"nishimura - update\"}" \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
           fi
+          
+          mv website.html website_previous.html
+          git config --global user.email "GitHubActions@example.com"
+          git config --global user.name "GitHub Actions"
+
+          git add .
+          git commit -m "Automated commit from GitHub Actions"
+          git push origin main
 
       - name: Upload HTML
         uses: actions/upload-artifact@v4
