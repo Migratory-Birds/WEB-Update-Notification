@@ -24,17 +24,17 @@ jobs:
       - name: Download HTML
         uses: actions/download-artifact@v4
         with: 
-          name: website_previous_$(date +%Y%m%d).html
+          name: website_previous_$(date '+%Y-%m-%d').html
         continue-on-error: true
 
       - name: Fetch Website Content
-        # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website_$(date +%Y%m%d).html
-        run: curl -sL https://www.elegaku.com/cast/schedule/castCode/369180 > website_$(date +%Y%m%d).html
+        # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website_$(date '+%Y-%m-%d').html
+        run: curl -sL https://www.elegaku.com/cast/schedule/castCode/369180 > website_$(date '+%Y-%m-%d').html
 
       - name: Compare with Previous Version
         run: |
-          if [ -f website_previous_$(date +%Y%m%d).html ]; then
-            diff website_previous_$(date +%Y%m%d).html website_$(date +%Y%m%d).html || curl -H "Content-Type: application/json" \
+          if [ -f website_previous_$(date '+%Y-%m-%d').html ]; then
+            diff website_previous_$(date '+%Y-%m-%d').html website_$(date '+%Y-%m-%d').html || curl -H "Content-Type: application/json" \
                -X POST \
                -d "a{\"content\": \"nishimura - update\"}" \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
@@ -43,5 +43,5 @@ jobs:
       - name: Upload HTML
         uses: actions/upload-artifact@v4
         with: 
-          name: website_$(date +%Y%m%d).html
-          path: website_previous_$(date +%Y%m%d).html
+          name: website_$(date '+%Y-%m-%d').html
+          path: website_previous_$(date '+%Y-%m-%d').html
