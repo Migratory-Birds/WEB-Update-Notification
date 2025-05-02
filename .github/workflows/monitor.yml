@@ -32,6 +32,7 @@ jobs:
           gh run download $RUN_ID --repo Migratory-Birds/WEB-Update-Notification
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
 
       - name: Fetch Website Content
         # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
