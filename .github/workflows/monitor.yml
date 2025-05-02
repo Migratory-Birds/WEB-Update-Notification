@@ -2,7 +2,7 @@ name: Monitor Website
 
 on:
   schedule:
-    - cron: '*/5 23 * * *'    # 5分ごとに実行 (日本時間 8:00)
+    - cron: '*/5 22-23 * * *'    # 5分ごとに実行 (日本時間 7:00)
     - cron: '*/5 0-11 * * *'  # 5分ごとに実行 (日本時間 9:00～20:00)
     # - cron: '*/5 8-20 * * *'  # 10分ごとに実行
   workflow_dispatch:
@@ -26,30 +26,30 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch Website Content
-        # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/352662 > website.html
         run: |
-          curl -sL https://www.elegaku.com/cast/schedule/castCode/332636 > website.html
+          curl -sL https://www.elegaku.com/cast/schedule/castCode/352662 > website.html
 
       - name: Compare with Previous Version
         run: |
-          echo 100
           if [ -f website_previous.html ]; then
-            echo 200
 
             if diff -B website_previous.html website.html | grep 'class.*' >/dev/null; then
-              echo 300
-              echo "Changes found, taking action..."
+              echo "Changes found"
+
               curl -H "Content-Type: application/json" \
                -X POST \
-               -d '{"content": "update"}' \
+               -d '{"content": "update web"}' \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
+
             else
-              echo 400
+
               echo "No changes detected."
+
             fi
           fi
 
           mv website.html website_previous.html
+
           git config --global user.email "GitHubActions@example.com"
           git config --global user.name "GitHub Actions"
 
