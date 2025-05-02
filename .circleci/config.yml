@@ -16,17 +16,15 @@ jobs:
     docker:
       - image: circleci/python:3.8
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "b7:35:a6:4e:9b:0d:6d:d4:78:1e:9a:97:2a:66:6b:be"
-            - "SHA256:tJFWNp8/5vK5ESxE/X6MTYuY/hDm/zZPQu3rIWYrI+I"
       - checkout
       - run:
           name: Check website updates
           command: |
             TZ=Asia/Tokyo
             echo "CURRENT_DATE=$(date '+%Y-%m-%d')"
-
+            
+            git checkout circleci-project-setup
+            
             pwd
             chown -R $USER:$USER /home/circleci/project
             curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
@@ -50,6 +48,6 @@ jobs:
 
             git add .
             git commit -m "Automated commit from circleci Actions"
-            git push origin main
+            git push origin circleci-project-setup
 
             
