@@ -40,7 +40,8 @@ jobs:
 
       - name: Fetch Website Content
         # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
-        run: curl -sL https://www.elegaku.com/cast/schedule/castCode/369180 > website.html
+        run: |
+          curl -sL https://www.elegaku.com/cast/schedule/castCode/369180 > website.html
           git add .
           git commit -m "Automated commit from GitHub Actions"
           git push origin main
