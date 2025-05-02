@@ -25,11 +25,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download HTML
-        uses: actions/download-artifact@v4
-        with: 
-          name: website_previous.html
-        continue-on-error: true
+      - name: Get latest workflow run ID
+        run: |
+          RUN_ID=$(gh run list --limit 1 --json databaseId --jq ".[0].databaseId")
+          echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Download artifact from previous workflow
+        run: |
+          gh run download $RUN_ID --repo Migratory-Birds/WEB-Update-Notification
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch Website Content
         # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
