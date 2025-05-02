@@ -58,7 +58,7 @@ jobs:
               echo "Changes found, taking action..."
               curl -H "Content-Type: application/json" \
                -X POST \
-               -d 'a{"content": "update"}' \
+               -d '{"content": "update"}' \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
             fi
           fi
@@ -71,8 +71,3 @@ jobs:
           git commit -m "Automated commit from GitHub Actions"
           git push origin main
 
-      - name: Upload HTML
-        uses: actions/upload-artifact@v4
-        with: 
-          name: previous
-          path: website.html
