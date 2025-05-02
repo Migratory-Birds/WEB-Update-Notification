@@ -45,7 +45,7 @@ jobs:
             git config --global user.name "circleci Actions"
 
             git add .
-            git commit -m "Automated commit from GitHub Actions"
+            git commit -m "Automated commit from circleci Actions"
             git push origin main
 
             
