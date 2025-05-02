@@ -15,11 +15,10 @@ jobs:
       actions: write
 
     steps:
-
       - name: Set Current Date
         run: |
           TZ=Asia/Tokyo
-          echo "CURRENT_DATE=$(date '+%Y-%m-%d')"
+          echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,8 +26,8 @@ jobs:
       - name: Get latest workflow run ID
         run: |
           pwd
-          RUN_ID=$(gh run list --limit 1 --json databaseId --jq ".[0].databaseId")
-          echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
+          RUN_ID=$(gh run list --limit 1 --json databaseId --jq ".[0].databaseId") >> $GITHUB_ENV
+          echo $RUN_ID
           gh run download $RUN_ID --repo Migratory-Birds/WEB-Update-Notification
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
