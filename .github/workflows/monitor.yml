@@ -11,8 +11,10 @@ jobs:
   check_website:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout repository
-      #  uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with: 
+          persist-credentials: false
       
       - name: Set Current Date
         run: |
@@ -20,9 +22,10 @@ jobs:
           echo "CURRENT_DATE=$(date '+%Y-%m-%d')"
 
       - name: Download HTML
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with: 
           name: website_previous_$(date +%Y%m%d).html
+        continue-on-error: true
 
       - name: Fetch Website Content
         # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website_$(date +%Y%m%d).html
@@ -38,7 +41,7 @@ jobs:
           fi
 
       - name: Upload HTML
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with: 
           name: website_$(date +%Y%m%d).html
           path: website_previous_$(date +%Y%m%d).html
