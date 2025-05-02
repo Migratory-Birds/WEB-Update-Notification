@@ -44,6 +44,7 @@ jobs:
             fi
             mv website.html website_previous.html
 
+            echo "git add"
             git config --global user.email "circleci@example.com"
             git config --global user.name "circleci Actions"
 
