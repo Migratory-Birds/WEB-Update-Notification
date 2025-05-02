@@ -22,6 +22,8 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get latest workflow run ID
         run: |
@@ -39,6 +41,9 @@ jobs:
       - name: Fetch Website Content
         # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
         run: curl -sL https://www.elegaku.com/cast/schedule/castCode/369180 > website.html
+          git add .
+          git commit -m "Automated commit from GitHub Actions"
+          git push origin main
 
       - name: Compare with Previous Version
         run: |
