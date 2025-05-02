@@ -38,8 +38,8 @@ jobs:
             fi
             mv website.html website_previous.html
 
-            git config --global user.email "GitHubActions@example.com"
-            git config --global user.name "GitHub Actions"
+            git config --global user.email "circleci@example.com"
+            git config --global user.name "circleci Actions"
 
             git add .
             git commit -m "Automated commit from GitHub Actions"
