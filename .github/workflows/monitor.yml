@@ -42,6 +42,10 @@ jobs:
         # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
         run: |
           curl -sL https://www.elegaku.com/cast/schedule/castCode/369180 > website.html
+          
+          git config --global user.email "GitHubActions@example.com"
+          git config --global user.name "GitHub Actions"
+          
           git add .
           git commit -m "Automated commit from GitHub Actions"
           git push origin main
