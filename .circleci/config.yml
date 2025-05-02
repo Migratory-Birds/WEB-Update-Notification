@@ -21,7 +21,7 @@ jobs:
           name: Check website updates
           command: |
             TZ=Asia/Tokyo
-            echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
+            echo "CURRENT_DATE=$(date '+%Y-%m-%d')"
 
             curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
 
