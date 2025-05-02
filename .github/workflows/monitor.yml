@@ -7,11 +7,6 @@ on:
     # - cron: '*/5 8-20 * * *'  # 10分ごとに実行
   workflow_dispatch:
 
-  workflow_run:
-    workflows: ["Monitor Website"]
-    types:
-      - completed
-
 jobs:
   check_website:
     runs-on: ubuntu-latest
