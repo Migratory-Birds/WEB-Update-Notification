@@ -41,16 +41,15 @@ jobs:
       - name: Fetch Website Content
         # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/352662 > website.html
         run: |
-          curl -sL https://www.elegaku.com/cast/schedule/castCode/369180 > website.html
+          curl -sL https://www.elegaku.com/cast/schedule/castCode/332636 > website.html
 
       - name: Compare with Previous Version
         run: |
           echo 100
           if [ -f website_previous.html ]; then
             echo 200
-            diff -B website_previous.html website.html | grep 'class.*'
             echo 201
-            
+
             if diff -B website_previous.html website.html | grep 'class.*' >/dev/null; then
               echo 300
               echo "No changes detected."
