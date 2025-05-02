@@ -48,8 +48,10 @@ jobs:
           echo 100
           if [ -f website_previous.html ]; then
             echo 200
-            sed 's/<!--.*-->//g' website_previous.html | deff -B website.html | sed 's/<!--.*-->//g'
-            if diff -B website_previous.html website.html >/dev/null; then
+            diff -B website_previous.html website.html | grep 'class.*'
+            echo 201
+            
+            if diff -B website_previous.html website.html | grep 'class.*' >/dev/null; then
               echo 300
               echo "No changes detected."
             else
