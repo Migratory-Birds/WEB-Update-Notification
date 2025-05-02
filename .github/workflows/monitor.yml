@@ -27,7 +27,7 @@ jobs:
 
       - name: Fetch Website Content
         run: |
-          curl -sL https://www.elegaku.com/cast/schedule/castCode/352662 > website.html
+          curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
 
       - name: Compare with Previous Version
         run: |
