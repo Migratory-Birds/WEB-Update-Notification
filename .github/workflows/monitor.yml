@@ -40,8 +40,8 @@ jobs:
 
       - name: Compare with Previous Version
         run: |
-          if [ -f website_previous.html ]; then
-            diff website_previous.html website.html || curl -H "Content-Type: application/json" \
+          if [ -f previous/website.html ]; then
+            diff previous/website.html website.html || curl -H "Content-Type: application/json" \
                -X POST \
                -d "a{\"content\": \"nishimura - update\"}" \
                https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
@@ -50,5 +50,5 @@ jobs:
       - name: Upload HTML
         uses: actions/upload-artifact@v4
         with: 
-          name: website_previous.html
+          name: previous
           path: website.html
