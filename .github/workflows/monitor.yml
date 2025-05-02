@@ -14,7 +14,6 @@ jobs:
       # - name: Checkout repository
       #  uses: actions/checkout@v3
 
-        
       - name: Set Current Date
         run: |
           TZ=Asia/Tokyo
@@ -25,7 +24,7 @@ jobs:
 
       - name: Fetch Website Content
         # run: curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website_$(date +%Y%m%d).html
-        run: curl -sL https://www.elegaku.com/cast/schedule/castCode/369619 > website_$(date +%Y%m%d).html
+        run: curl -sL https://www.elegaku.com/cast/schedule/castCode/369180 > website_$(date +%Y%m%d).html
 
       - name: Compare with Previous Version
         run: |
