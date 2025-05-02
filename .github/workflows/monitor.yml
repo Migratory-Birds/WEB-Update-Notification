@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      workflows: write
       actions: write
 
     steps:
@@ -27,13 +26,9 @@ jobs:
 
       - name: Get latest workflow run ID
         run: |
+          pwd
           RUN_ID=$(gh run list --limit 1 --json databaseId --jq ".[0].databaseId")
           echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Download artifact from previous workflow
-        run: |
           gh run download $RUN_ID --repo Migratory-Birds/WEB-Update-Notification
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
