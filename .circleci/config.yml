@@ -23,17 +23,15 @@ jobs:
             TZ=Asia/Tokyo
             echo "CURRENT_DATE=$(date '+%Y-%m-%d')"
             
-            git checkout circleci-project-setup
-            
             pwd
             chown -R $USER:$USER /home/circleci/project
             curl -sL https://www.elegaku.com/cast/schedule/castCode/161731 > website.html
 
             if [ -f website_previous.html ]; then
 
-              echo "CHANGES=diff -B website_previous.html website.html | grep 'class.*'"
+              echo "CHANGES=diff website_previous.html website.html | grep 'class.*'"
               echo "$CHANGES"
-              if diff -B website_previous.html website.html | grep 'class.*' >/dev/null; then
+              if diff website_previous.html website.html | grep 'class.*' >/dev/null; then
                 echo "Changes found"
                 
                 curl -H "Content-Type: application/json" \
