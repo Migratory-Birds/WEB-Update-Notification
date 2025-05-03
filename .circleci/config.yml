@@ -37,6 +37,8 @@ jobs:
               DIFF_FILES=$(diff -B website_previous.html website.html | grep -o "class.*")
               echo "$DIFF_FILES"
 
+              echo "↑ DIFF_FILES"
+              
               if diff -B website_previous.html website.html | grep -o "class.*" > /dev/null; then
                 echo "Changes found"
                 
