@@ -30,14 +30,17 @@ jobs:
             curl -sL https://www.elegaku.com/cast/schedule/castCode/161731 > website.html
 
             if [ -f website_previous.html ]; then
+              if [ -f website_previous.html ] && [ -f website.html ]; then
 
-              echo "CHANGES=diff website_previous.html website.html"
-              echo "$CHANGES"
+                echo "CHANGES=diff website_previous.html website.html"
+                echo "$CHANGES"
+                DIFF_FILES=$( diff -B website_previous.html website.html | grep 'class.*' )
+                echo "$DIFF_FILES"
+                echo "↑ DIFF_FILES"
+              else
+                  echo "ファイルが見つかりません"
+              fi
 
-              DIFF_FILES=$( diff -B website_previous.html website.html | grep 'class.*' )
-              echo "$DIFF_FILES"
-
-              echo "↑ DIFF_FILES"
               
               if diff -B website_previous.html website.html | grep 'class.*' > /dev/null; then
                 echo "Changes found"
