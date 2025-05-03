@@ -33,6 +33,7 @@ jobs:
 
               echo "CHANGES=diff website_previous.html website.html"
               echo "$CHANGES"
+              diff -B website_previous.html website.html | grep 'class.*'
               if diff -B website_previous.html website.html | grep 'class.*' > /dev/null; then
                 echo "Changes found"
                 
