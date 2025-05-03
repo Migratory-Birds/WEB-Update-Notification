@@ -33,7 +33,7 @@ jobs:
 
               echo "DIFF Start"
               set +e
-              DIFF_FILES=$( diff -B --new-line-format='%L' --unchanged-line-format='' website_previous.html website.html | grep 'class.*' )
+              DIFF_FILES=$( diff -B --old-line-format='' --new-line-format='%L' --unchanged-line-format='' website_previous.html website.html | grep 'class.*' )
               set -e
               echo "DIFF END"
               
@@ -45,7 +45,7 @@ jobs:
                 
                 curl -H "Content-Type: application/json" \
                  -X POST \
-                 -d '{"content": "${DIFF_FILES} \n https://www.elegaku.com/cast/schedule/castCode/161731"}' \
+                 -d '{"content": "'$DIFF_FILES' \n https://www.elegaku.com/cast/schedule/castCode/161731"}' \
                  https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
               else
                 echo "No changes detected."
