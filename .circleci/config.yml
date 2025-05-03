@@ -42,7 +42,7 @@ jobs:
               if [ -n "$DIFF_FILES" ]; then
                 echo "Changes found"
                 
-                JSON=$(jq -n --arg var "$DIFF_FILES \n https://www.elegaku.com/cast/schedule/castCode/161731" '{"content": "$var"}')
+                JSON=$(jq -n --arg var '$DIFF_FILES \n https://www.elegaku.com/cast/schedule/castCode/161731' '{"content": $var}')
 
                 echo "$JSON"
                 
