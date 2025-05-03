@@ -24,11 +24,14 @@ jobs:
             echo "CURRENT_DATE=$(date '+%Y-%m-%d')"
             
             pwd
+            ls -l
+            
             chown -R $USER:$USER /home/circleci/project
             curl -sL https://www.elegaku.com/cast/schedule/castCode/161731 > website.html
 
             if [ -f website_previous.html ]; then
 
+              diff website_previous.html website.html
               echo "CHANGES=diff website_previous.html website.html"
               echo "$CHANGES"
               if diff website_previous.html website.html | grep 'class.*' >/dev/null; then
