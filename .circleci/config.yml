@@ -42,13 +42,9 @@ jobs:
               if [ -n "$DIFF_FILES" ]; then
                 echo "Changes found"
                 
-                JSON=$(jq -n --arg var '$DIFF_FILES \n https://www.elegaku.com/cast/schedule/castCode/161731' '{"content": $var}')
-
-                echo "$JSON"
-                
                 curl -H "Content-Type: application/json" \
                  -X POST \
-                 -d $JSON \
+                 -d '{"content": "更新されました。\n https://www.elegaku.com/cast/schedule/castCode/161731"}' \
                  https://discord.com/api/webhooks/1367284131909734524/rlj6EN4ti6pgYALxaahl3OTcp5qfjNlUCLH052OYzKHI3J59Inn0bvpNOl6w0ggpPkex
               else
                 echo "No changes detected."
