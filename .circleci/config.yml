@@ -35,7 +35,10 @@ jobs:
                 echo "DIFF Start"
                 echo "CHANGES=diff website_previous.html website.html"
                 echo "$CHANGES"
+                set +e
                 DIFF_FILES=$( diff -B website_previous.html website.html | grep 'class.*' )
+                set -e
+                echo "DIFF END"
                 echo "$DIFF_FILES"
                 echo "↑ DIFF_FILES"
               else
