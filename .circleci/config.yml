@@ -34,12 +34,12 @@ jobs:
               echo "CHANGES=diff website_previous.html website.html"
               echo "$CHANGES"
 
-              DIFF_FILES=$(diff -B website_previous.html website.html | grep -o "class.*")
+              DIFF_FILES=$( diff -B website_previous.html website.html | grep 'class.*' )
               echo "$DIFF_FILES"
 
               echo "↑ DIFF_FILES"
               
-              if diff -B website_previous.html website.html | grep -o "class.*" > /dev/null; then
+              if diff -B website_previous.html website.html | grep 'class.*' > /dev/null; then
                 echo "Changes found"
                 
                 curl -H "Content-Type: application/json" \
