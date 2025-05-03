@@ -31,10 +31,9 @@ jobs:
 
             if [ -f website_previous.html ]; then
 
-              diff -B website_previous.html website.html
               echo "CHANGES=diff website_previous.html website.html"
               echo "$CHANGES"
-              if diff website_previous.html website.html | grep 'class.*' >/dev/null; then
+              if diff -B website_previous.html website.html | grep 'class.*' > /dev/null; then
                 echo "Changes found"
                 
                 curl -H "Content-Type: application/json" \
