@@ -31,7 +31,6 @@ jobs:
 
             if [ -f website_previous.html ]; then
 
-              diff -B website_previous.html website.html | grep 'class.*'
               echo "CHANGES=diff -B website_previous.html website.html | grep 'class.*'"
               if diff -B website_previous.html website.html | grep 'class.*' >/dev/null; then
                 echo "Changes found"
