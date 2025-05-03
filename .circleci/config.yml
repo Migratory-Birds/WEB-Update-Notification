@@ -45,8 +45,7 @@ jobs:
                   echo "ファイルが見つかりません"
               fi
 
-              
-              if diff -B website_previous.html website.html | grep 'class.*' > /dev/null; then
+              if [ -n "$DIFF_FILES" ]; then
                 echo "Changes found"
                 
                 curl -H "Content-Type: application/json" \
