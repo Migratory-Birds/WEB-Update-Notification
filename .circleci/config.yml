@@ -27,7 +27,7 @@ jobs:
             
             pwd
             chown -R $USER:$USER /home/circleci/project
-            curl -sL https://www.elegaku.com/cast/schedule/castCode/329878 > website.html
+            curl -sL https://www.elegaku.com/cast/schedule/castCode/161731 > website.html
 
             if [ -f website_previous.html ]; then
 
