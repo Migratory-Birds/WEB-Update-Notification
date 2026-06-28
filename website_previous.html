@@ -1,582 +1,475 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html  lang="ja">
 <head>
-<meta charset="utf-8">
-<link rel="shortcut icon" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/favicon.ico" type="image/vnd.microsoft.icon">
-<link rel="icon" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/favicon.ico" type="image/vnd.microsoft.icon">
-<link rel="apple-touch-icon" sizes="57x57" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/apple-touch-icon-180x180.png">
-<link rel="icon" type="image/png" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/android-chrome-192x192.png" sizes="192x192">
-<link rel="icon" type="image/png" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/favicon-48x48.png" sizes="48x48">
-<link rel="icon" type="image/png" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/favicon-32x32.png" sizes="32x32">
-<link rel="manifest" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/manifest.json">
-<meta name="msapplication-TileColor" content="#2d88ef">
-<meta name="msapplication-TileImage" content="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/ico/mstile-144x144.png">
-<title>出席予定表｜川崎・堀之内ソープ・ソープランド「エレガンス学院」</title>
-<meta name="keywords" content="川崎,堀之内,ソープ,ソープランド" />
-<meta name="description" content="川崎・堀之内ソープ・ソープランド「エレガンス学院」のオフィシャルサイトです。女の子の出席予定表" />
-<meta name="viewport" content="width=1060" /> 
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/css/import.css">
-<link rel="stylesheet" type="text/css" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/css/cf.css">
-
-<link rel="stylesheet" type="text/css" href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/css/schedule.css">
-<style>
-  .sch_box{
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    border: 4px solid #ffadd8;
-    background-color: #ffffff;
-    margin: 5px 30px;
-    padding:10px 0px;
-    box-sizing:border-box;
-  }
-  #castBox h2 {
-    margin-bottom: 10px;
-  }
-  #mixitup{
-    margin-top:10px;
-  }
-  #castBox {
-    float: initial;
-    font-size:0;
-  }
-  #castBox #companion_box .g_image span{
-    top:initial;
-    left:initial;
-  }
-  #castBox #companion_box .g_image span.next {
-    height: auto;
-    width: 100%;
-    bottom: 0px;
-  }
-  #castBox #companion_box .g_image span.tooday{
-    background-color: #ff4c86;
-    line-height: 37px;
-    vertical-align: middle;
-    width: 100%;
-    height: auto;
-    bottom: 0px;
-  }
-  #castBox #companion_box .g_image {
-    margin: 1px auto;
-  }
-  #castBox #companion_box .g_image span.ranking {
-    position: absolute;
-    top: -1px;
-    left: -1px;
-  }
-  #castBox div.name a{
-    color:#27b4ec;
-  }
-  #castBox #companion_box {
-    height: auto;
-    float: initial;
-    display: inline-block;
-    margin-right: 15px;
-  }
-  #castBox #companion_box .catch {
-    width: 100%;
-  }
-  #castBox ul.sort{
-    font-size:0;
-    line-height:1em;
-    width:600px;
-    margin:0px auto;
-  }
-  #castBox ul.sort li{
-    display:inline-block;
-    width:25%;
-  }
-  #castBox ul.sort li img{
-    max-width:100%;
-    opacity:0.5;
-  }
-  #castBox div.sort1 p{
-    text-align:center;
-    padding:10px 0px;
-  }
-  .mixitup-control-active{
-    opacity:1 !important;
-  }
-  #castBox #companion_box .icon {
-    width: 100%;
-  }
-  #castBox #companion_box .time {
-    font-size: 1.20rem;
-    padding-bottom: initial;
-    width: 100%;
-    height: auto;
-  }
-  #pickup div.content {
-    box-sizing: border-box;
-    padding: 20px 0 40px;
-  }
-  #slider-pickup {
-    line-height: 0;
-  }
-</style>
-<link href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/slick/slick.css" rel="stylesheet" />
-<link href="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/slick/slick-theme.css" rel="stylesheet" />
-
-<style>
-  ul.links li, ul.links li a {
-    background: url(https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/common/glonavSma2.jpg) 0 0;
-  }
-  a:visited {
-    color: #27b4ec;
-  }
-  #copy p {
-    margin-top: 0px;
-  }
-  span.age{
-    position:initial !important;
-  }
-  span.age:before{
-    content:"(";
-  }
-  span.age:after{
-    content:")";
-  }
-  #footerBox a{
-    color:#fff;
-  }
-  #footerBox div.child2 ul{
-    font-size:0;
-    line-height:1em;
-  }
-  #footerBox div.child2 ul li{
-    font-size: 1.15rem;
-    line-height:1.25em;
-    display:inline-block;
-  }
-  #footerBox div.child2 ul li:after{
-    content:"";
-    margin-right:10px;
-  }
-  #footerBox div.child2 ul li:last-child:after{
-    content:"";
-    margin-right:0px;
-  }
-  #footerBox div.parent{
-    display:table;
-    width:1060px;
-    margin-top: 24px;
-    margin: 0px auto;
-  }
-  #footerBox div.parent p.child1{
-    display: table-cell;
-    width: 377px;
-    vertical-align: top;
-    box-sizing: border-box;
-    padding-left: 14px;
-  }
-  #footerBox div.parent div.child2{
-    display:table-cell;
-    width:auto;
-    font-size: 1.45em;
-    line-height: 1.65em;
-    padding-left: 30px;
-    box-sizing: border-box;
-    padding-top: 40px;
-  }
-  .g_image{
-    position:relative;
-  }
-  ul.casticon{
-    font-size:0;
-    line-height:1em;
-    position:absolute;
-    top:0;
-    right:0;
-    width: 30px;
-    text-align: right;
-  }
-  ul.casticon li{
-    display:inline-block;
-    width:100%;
-    box-sizing:border-box;
-    padding:1px;
-  }
-  ul.casticon li img{
-    max-width:100%;
-  }
-  p.sokuhime{
-    width: 100%;
-    background-color: rgba(123, 221, 255, 0.7);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-    padding: 5px 0px;
-    font-size: 1.0rem;
-    line-height:1em;
-  }
-  .fa {
-    padding-right: 2px;
-  }
-  .stypeON{
-    background-color:#7bddff;
-  }
-  .h1Wrap h2 img{
-    margin-left: -18px;
-  }
-  ul.whiteline{
-    margin-top: 10px;
-    font-size:0;
-    line-height:1em;
-  }
-  ul.whiteline li{
-    font-size:1rem;
-    margin-bottom:10px;
-    width:100%;
-    line-height:1em;
-    background-color:#fff;
-  }
-  footer {
-    background: none;
-    background-color:#252d42;
-    height:auto;
-    position:static;
-  }
-  #footerBox {
-    width: auto;
-    height: auto;
-    padding-top: 10px;
-  }
-  #copy{
-    margin:0px auto;
-    padding-bottom: 5px;
-  }
-  #mainBox{
-    padding-bottom:0px;
-  }
-  div#headerBox{
-    width:100%;
-    height: 400px;
-    background: url(https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/common/header.jpg);
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-color: #252d42;
-  }
-  #headerBox h1 {
-    width: 100%;
-    padding-top:5px;
-    margin-top: 0px;
-    margin-left: 0px;
-    float: initial;
-    text-align:center;
-  }
-  #wrapper {
-    background: url(https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/common/background.jpg);
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-color: #f7fdff;
-  }
-</style>
-<!--ページ毎のスタイルシート-->
-<!--ページ毎のスクリプト-->
-
-<script src="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/js/jquery-3.1.0.min.js"></script>
-<script src="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/slick/slick.js"></script>
-  <script>
-  $(document).ready(function() {
-    $('#slider-pickup').slick({
-      // 自動再生。trueで自動再生される。
-      autoplay: true,
-      // 自動再生で切り替えをする時間
-      autoplaySpeed: 3000,
-      // 自動再生や左右の矢印でスライドするスピードｓ
-      // 左右の次へ、前へボタンを表示するかどうか
-      arrows: true,
-      prevArrow: '<div class="prev"><span class="ol"><img src="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/slick/slider-arrow-left.png" alt="戻る"/></span></div>',
-      nextArrow: '<div class="next"><span class="ol"><img src="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/slick/slider-arrow-right.png" alt="進む"/></span></div>',
-      // 切り替え時のフェードイン設定。trueでon
-      fade: false,
-      // スライドのエリアに画像がいくつ表示されるかを指定
-      slidesToShow: 1,
-      // 一度にスライドする数
-      slidesToScroll: 1,
-      // 表示中の画像を中央へ
-      centerMode: true,
-      // 中央のpadding
-      centerPadding: '15%',
-      // 画像下のドット（ページ送り）を表示
-      dots: true,
-      adaptiveHeight: true,
-      responsive: [{
-          breakpoint: 960,
-          settings: {
-            centerPadding: '10%',
-          }
-        },
-        {
-          breakpoint: 720,
-          settings: {
-            centerPadding: '5%',
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            centerPadding: '0%',
-          }
-        },
-      ]
-    });
-  });
-
-</script>
+	<meta charset="UTF-8" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" />
+	<link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10989703807"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+	<style>
+		* {
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+		}
 
-gtag('config', 'AW-10989703807');
-</script>
+		html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+		small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend, caption, article, aside, canvas, details, figcaption, figure,  footer, header, hgroup,
+		menu, nav, section, summary, time, mark, audio, video {
+			margin:0;
+			padding:0;
+			border:0;
+			outline:0;
+			vertical-align:baseline;
+			background:transparent;
+		}
+
+		article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+			display: block;
+		}
+
+		html {
+			font-size: 16px;
+			line-height: 24px;
+			width:100%;
+			height:100%;
+			-webkit-text-size-adjust: 100%;
+			-ms-text-size-adjust: 100%;
+			overflow-y:scroll;
+			overflow-x:hidden;
+		}
+
+		img {
+			vertical-align:middle;
+			max-width: 100%;
+			height: auto;
+			border: 0;
+			-ms-interpolation-mode: bicubic;
+		}
+
+		body {
+			min-height:100%;
+			-webkit-font-smoothing: subpixel-antialiased;
+		}
+
+		.clearfix {
+			clear:both;
+			zoom: 1;
+		}
+		.clearfix:before, .clearfix:after {
+			content: "\0020";
+			display: block;
+			height: 0;
+			visibility: hidden;
+		}
+		.clearfix:after {
+			clear: both;
+		}
+	</style>
+	<style>
+		body.background.error-page-wrapper, .background.error-page-wrapper.preview {
+			font-family: 'Source Sans Pro', sans-serif;
+			background-position:center center;
+			background-repeat:no-repeat;
+			background-size:cover;
+			position:relative;
+		}
+
+		.background.error-page-wrapper .content-container {
+			border-radius: 6px;
+			text-align: center;
+			box-shadow: 0 0 20px rgba(0,0,0,.2);
+			padding:50px;
+			background-color: #fff;
+			width:100%;
+			max-width:525px;
+			position:absolute;
+			left:50%;
+			margin-left:-262px;
+		}
+
+		.background.error-page-wrapper .content-container.in {
+			left:0px;
+			opacity:1;
+		}
+
+		.background.error-page-wrapper .head-line {
+			transition:color .2s linear;
+			font-size:48px;
+			line-height:60px;
+			letter-spacing: -1px;
+			margin-bottom: 5px;
+			color:#ccc;
+		}
+		.background.error-page-wrapper .subheader {
+			transition:color .2s linear;
+			font-size:28px;
+			line-height:46px;
+			color:#333;
+		}
+		.background.error-page-wrapper .hr {
+			height:1px;
+			background-color: #ddd;
+			width:60%;
+			max-width:250px;
+			margin:35px auto;
+		}
+		.background.error-page-wrapper .context {
+			transition:color .2s linear;
+			font-size:18px;
+			line-height:27px;
+			color:#bbb;
+		}
+		.background.error-page-wrapper .context p {
+			margin:0;
+		}
+		.background.error-page-wrapper .context p:nth-child(n+2) {
+			margin-top:16px;
+		}
+		.background.error-page-wrapper .buttons-container {
+			margin-top: 35px;
+			overflow: hidden;
+		}
+		.background.error-page-wrapper .buttons-container a {
+			transition:text-indent .2s ease-out, color .2s linear, background-color .2s linear;
+			text-indent: 0px;
+			font-size:14px;
+			text-transform: uppercase;
+			text-decoration: none;
+			color:#fff;
+			background-color:#2ecc71;
+			border-radius: 99px;
+			padding:12px 0 13px;
+			text-align: center;
+			display:inline-block;
+			overflow: hidden;
+			position: relative;
+			width:45%;
+		}
+
+		.background.error-page-wrapper .buttons-container .fa {
+			transition:left .2s ease-out;
+			position: absolute;
+			left:-50px;
+		}
+
+		.background.error-page-wrapper .buttons-container a:hover {
+			text-indent: 15px;
+		}
+
+		.background.error-page-wrapper .buttons-container a:nth-child(1) {
+			float:left;
+		}
+
+		.background.error-page-wrapper .buttons-container a:nth-child(2) {
+			float:right;
+		}
+
+		.background.error-page-wrapper .buttons-container .fa-home {
+			font-size:18px;
+			top:15px;
+		}
+
+		.background.error-page-wrapper .buttons-container a:hover .fa-home {
+			left:10px;
+		}
+
+		.background.error-page-wrapper .buttons-container .fa-warning {
+			font-size:16px;
+			top:17px;
+		}
+
+		.background.error-page-wrapper .buttons-container a:hover .fa-warning {
+			left:5px;
+		}
+
+		.background.error-page-wrapper .buttons-container .fa-power-off {
+			font-size:16px;
+			top:17px;
+		}
+
+		.background.error-page-wrapper .buttons-container a:hover .fa-power-off {
+			left:9px;
+		}
+
+
+		.background.error-page-wrapper .buttons-container.single-button {
+			text-align: center;
+		}
+
+		.background.error-page-wrapper .buttons-container.single-button a  {
+			float:none !important;
+		}
+
+		@media screen and (max-width: 555px) {
+			.background.error-page-wrapper {
+				padding:30px 5%;
+			}
+			.background.error-page-wrapper .content-container {
+				padding:37px;
+				position: static;
+				left: 0;
+				margin-left:0;
+			}
+			.background.error-page-wrapper .head-line {
+				font-size:36px;
+			}
+			.background.error-page-wrapper .subheader {
+				font-size:27px;
+				line-height: 37px;
+			}
+			.background.error-page-wrapper .hr {
+				margin:30px auto;
+				width:215px;
+			}
+			.background.error-page-wrapper .buttons-container .fa {
+				display:none;
+			}
+			.background.error-page-wrapper .buttons-container a:hover {
+				text-indent: 0px;
+			}
+		}
+
+		@media screen and (max-width: 450px) {
+			.background.error-page-wrapper {
+				padding:30px;
+			}
+			.background.error-page-wrapper .head-line {
+				font-size:32px;
+			}
+			.background.error-page-wrapper .hr {
+				margin:25px auto;
+				width:180px;
+			}
+			.background.error-page-wrapper .context {
+				font-size:15px;
+				line-height:22px;
+			}
+
+			.background.error-page-wrapper .context p:nth-child(n+2) {
+				margin-top:10px;
+			}
+			.background.error-page-wrapper .buttons-container {
+				margin-top:29px;
+			}
+			.background.error-page-wrapper .buttons-container a {
+				float:none !important;
+				width:65%;
+				margin:0 auto;
+				font-size:13px;
+				padding:9px 0;
+			}
+
+			.background.error-page-wrapper .buttons-container a:nth-child(2) {
+				margin-top:12px;
+			}
+		}
+	</style>
+
+	<style>
+
+
+		.background-image {
+			background-color: #FFFFFF;
+			background-image: url(https://dka575ofm4ao0.cloudfront.net/assets/better_error_pages/templates/background/background-e1d28eee7cab6e890134c7271be33d66.png) !important;
+		}
+
+		.primary-text-color {
+			color: #494949 !important;
+		}
+
+		.secondary-text-color {
+			color: #AAAAAA !important;
+		}
+
+		.sign-text-color {
+			color: #FFBA00 !important;
+		}
+
+		.sign-frame-color {
+			color: #343C3F;
+		}
+
+		.pane {
+			background-color: #FFFFFF !important;
+		}
+
+		.border-button {
+			color: #2ECC71 !important;
+			border-color: #2ECC71 !important;
+		}
+		.button {
+			background-color: #2ECC71 !important;
+			color: #FFFFFF !important;
+		}
+
+		.shadow {
+			box-shadow: 0 0 21px #000000;
+		}
+
+	</style>
 
 </head>
+<body class="background error-page-wrapper background-color background-image">
+<div class="context secondary-text-color" style="position: absolute;bottom :0; left: 0px;background-color: #fff;padding: 15px;">
+	<p>Zend_Db_Statement_Exception</p>
+	<pre>SQLSTATE[HY000]: General error: 1041 Out of memory; check if mysqld or some other process uses all available memory; if not, you may have to use 'ulimit' to allow mysqld to use more memory or you can add more swap space, query was: set names utf8mb4</pre>
+	<pre>#0 /apps/cms/vendor/shardj/zf1-future/library/Zend/Db/Statement.php(303): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /apps/cms/vendor/shardj/zf1-future/library/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#2 /apps/cms/vendor/shardj/zf1-future/library/Zend/Db/Adapter/Pdo/Abstract.php(267): Zend_Db_Adapter_Abstract->query('set names utf8m...', Array)
+#3 /apps/cms/Application/Model/Db/Connector.php(126): Zend_Db_Adapter_Pdo_Abstract->query('set names utf8m...')
+#4 /apps/cms/Application/Model/Db/Table/Abstract.php(57): Application_Model_Db_Connector->getMaster()
+#5 /apps/cms/Interface/Public.php(83): Application_Model_Db_Table_Abstract->__construct()
+#6 {main}</pre>
+</div>
+<div class="content-container shadow">
+	<div class="head-line secondary-text-color">
+		500
+	</div>
+	<div class="subheader primary-text-color">
+		ご迷惑をお掛けしております
+	</div>
+	<div class="hr"></div>
+	<div class="context secondary-text-color">
 
-<body>
-  <div id="header">
-    <div id="headerBox">
-      <h1>
-        川崎・堀之内ソープ・ソープランド「エレガンス学院」｜出席予定表
-              </h1>
-          </div>
-    <div id="line"></div>
-    <div id="navBox">
-      <nav>
-        <ul>
-          <li class="top">
-            <a href="/top/">トップページ</a>
-          </li>
-          <li class="girls">
-            <a href="/cast/">生徒一覧</a>
-          </li>
-          <li class="schedule">
-            <a href="/schedule/">出席予定表</a>
-          </li>
-          <li class="price">
-            <a href="/system/">料金表</a>
-          </li>
-          <li class="access">
-            <a href="/access/">アクセス</a>
-          </li>
-        </ul>
-      </nav>
-      <ul class="links">
-        <li class="ranking">
-          <a href="/rank/">ランキング</a>
-        </li>
-        <li class="newface">
-          <a href="/newface/">新入生紹介</a>
-        </li>
-        <li class="questionnaire">
-          <a href="/questionnaire/">アンケート</a>
-        </li>
-        <li class="recruit">
-          <a rel="nofollow" href="https://kanto.qzin.jp/elegaku/?v=official"target="_blank">求人情報</a>
-        </li>
-        <li class="link">
-          <a href="/movie/">動画一覧</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div id="wrapper">
-    
+		<p>
+			エラーを補足した為、動作を一旦停止させました。
+		</p>
+
+	</div>
+	<div class="buttons-container single-button">
+		<a class="button" href="/dashboad/index/.admin" target="_blank"><span class="fa fa-warning"></span> 戻る</a>
+	</div>
 
 
+</div>
 
 
-<div id="mainBox"> 
-  <div id="pankuzu">
-    <p>
-      <a href="/index/">エレガンス学院 ＞</a>
-      <a href="/top/">トップページ＞</a>出席予定表
-    </p>
-  </div>
-  <!-- pankuzu -->
-  <div id="castBox">
-    <h2>
-      <img class="ttl" src="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/schedule/scheduleTtl.jpg" alt="出席予定表"/>
-    </h2>
-    
-    
-    <ul id="date_list" class="clearfix">
-       
-      <li class="left
-       select    ">
-                                      <a href="/cast/schedule/y/2026/MM/06/dd/28" class="date" style="color:red">
-        本日
-      </a>
-    </li>
-      <!-- 2026/06/29 18:31:21 -->
-      <li class="
-          ">
-                        <a href="/cast/schedule/y/2026/MM/06/dd/29" class="date" style="color:white">
-        明日
-      </a>
-    </li>
-              <!-- 2026/06/30 18:31:21 -->
-                <!--  -->
-        <li class="
-          ">
-                        <a href="/cast/schedule/y/2026/MM/06/dd/30" class="date" style="color:white">
-        06/30(火)
-      </a>
-     </li>
-              <!-- 2026/07/01 18:31:21 -->
-                <!--  -->
-        <li class="
-          ">
-                        <a href="/cast/schedule/y/2026/MM/07/dd/01" class="date" style="color:white">
-        07/01(水)
-      </a>
-     </li>
-              <!-- 2026/07/02 18:31:21 -->
-                <!--  -->
-        <li class="
-          ">
-                        <a href="/cast/schedule/y/2026/MM/07/dd/02" class="date" style="color:white">
-        07/02(木)
-      </a>
-     </li>
-              <!-- 2026/07/03 18:31:21 -->
-                <!--  -->
-        <li class="
-          ">
-                        <a href="/cast/schedule/y/2026/MM/07/dd/03" class="date" style="color:white">
-        07/03(金)
-      </a>
-     </li>
-              <!-- 2026/07/04 18:31:21 -->
-                <!--  -->
-        <li class="
-          ">
-                                      <a href="/cast/schedule/y/2026/MM/07/dd/04" class="date" style="color:blue">
-        07/04(土)
-      </a>
-     </li>
-          </ul>
-    <div id="schedule_time">
-            <p>06/28(日)の出席表</p>
-    </div>
-    
+<script>
+	function ErrorPage(container, pageType, templateName) {
+		this.$container = $(container);
+		this.$contentContainer = this.$container.find(templateName == 'sign' ? '.sign-container' : '.content-container');
+		this.pageType = pageType;
+		this.templateName = templateName;
+	}
 
-    <!--
-        
-        
-    $8dayslater=2026/07/05 18:31:21,<br>$1dayago=2026/06/27 18:31:21,<br>$dateObject=2026/06/28 18:31:21
-    -->
-                   
-          <div style="font-size: 22px; font-weight: bold; text-align: center; border: 4px solid #ffadd8; background-color: #ffffff; margin: 5px 30px;">現在出勤予定を調整中です。
-            <br>公開までしばらくお待ちください
-          </div>
-                    </div>
-  <!-- castBox -->
-  <div><hr style="background-color: #fff;border-top: 2px dotted #8c8b8b;"></div>
-      <div id="pickup" class="page">
-      <div class="content">
-        <div id="slider-pickup" class="slider-content">
-                      <p class="slider-child">
-              <a href="https://e-yoyaku.jp/shop/934/" target="_blank">
-                <img src="//cdn-fu-kakumei.com/image/5b5d078aff027277/0/0/.api" alt="ネット予約"/>
-              </a>
-            </p>
-                      <p class="slider-child">
-              <a href="https://h-sns.net/s/@elegancegakuin" target="_blank">
-                <img src="//cdn-fu-kakumei.com/image/27d16e8cc7f3e022/0/0/.api" alt="01"/>
-              </a>
-            </p>
-                      <p class="slider-child">
-              <a href="https://x.com/elegaku_s" target="_blank">
-                <img src="//cdn-fu-kakumei.com/image/18af2b00afcf3180/0/0/.api" alt="X"/>
-              </a>
-            </p>
-                      <p class="slider-child">
-              <a href="https://www.elegaku.com/system/" target="_blank">
-                <img src="//cdn-fu-kakumei.com/image/03d91692242def2a/0/0/.api" alt="朝風呂割"/>
-              </a>
-            </p>
-                      <p class="slider-child">
-              <a href="https://www.pgate.jp/5016/entry.php" target="_blank">
-                <img src="//cdn-fu-kakumei.com/image/e41b660ca61fb410/0/0/.api" alt="ポイントカード"/>
-              </a>
-            </p>
-                      <p class="slider-child">
-              <a href="https://lin.ee/bG7zzJ8" target="_blank">
-                <img src="//cdn-fu-kakumei.com/image/387fa1dfbd1e0344/0/0/.api" alt="公式LINE"/>
-              </a>
-            </p>
-                      <p class="slider-child">
-              <a href="https://www.youtube.com/@elegakuchannel" target="_blank">
-                <img src="//cdn-fu-kakumei.com/image/5684fe10eb743571/0/0/.api" alt="エレガクyoutube"/>
-              </a>
-            </p>
-                  </div>
-        <!--slider-pickup-->
-      </div>
-      <!--content-->
-    </div>
-    <!--page-->
-  </div>
-<!-- mainBox -->
+	ErrorPage.prototype.centerContent = function () {
+		var containerHeight = this.$container.outerHeight()
+			, contentContainerHeight = this.$contentContainer.outerHeight()
+			, top = (containerHeight - contentContainerHeight) / 2
+			, offset = this.templateName == 'sign' ? -100 : 0;
 
- 
-    
-    <footer class="clearfix">
-      <div id="footerBox" class="clearfix">
-        <div class="parent">
-          <p class="child1"><img src="https://cdn1.cdn-fu-kakumei.com/69/pc_bak/images/common/f_logo.jpg" alt="エレガンス学院"/></p>
-          <div class="child2">
-            <p>エレガンス学院は、ＪＲ川崎駅、京急川崎駅から徒歩数分のソープランドです。<br />若くて可愛い女の子がセーラー服でお出迎え！<br />エリアトップレベルのサービスをリーズナブルな料金でご提供いたします。<br />神奈川県川崎市川崎区堀之内町7－8</p>
-                        <ul style="margin: 25px 0px 5px 0px;">
-              <li><a href="/">年齢認証</a></li>
-              <li><a href="/top/">トップ</a></li>
-              <li><a href="/cast/">生徒一覧</a></li>
-              <li><a href="/schedule/">出席予定表</a></li>
-              <li><a href="/system/">料金表</a></li>
-              <li><a href="/access/">アクセス</a></li>
-              <li><a href="/movie/">動画一覧</a></li>
-            </ul>
-            <ul class="">
-              <li><a href="/rank/">ランキング</a></li>
-              <li><a href="/newface/">新入生紹介</a></li>
-              <li><a href="/questionnaire/">アンケート</a></li>
-              <li><a rel="nofollow" href="https://kanto.qzin.jp/elegaku/?v=official"target="_blank">求人情報</a></li>
-              <li><a href="/mailmagazine/">メルマガ</a></li>
-              <li><a href="/notice/">出勤お知らせ</a></li>
-              <li><a href="/link/">リンク</a></li>
-            </ul>
-          </div>
+		this.$contentContainer.css('top', top + offset);
+	};
 
-        </div>
-        <ul class="whiteline">
-          <li>&nbsp;</li>
-          <li>&nbsp;</li>
-          <li>&nbsp;</li>
-        </ul>
-        <div id="copy"><p>Copyright (C) 2016 ELEGANCE GAKUIN. All Rights Reserved.</p></div>
-      </div> <!-- footerBox -->
+	ErrorPage.prototype.initialize = function () {
+		var self = this;
 
-    </footer>
-      </div>
-  <script src="https://failover.fu-kakumei.com/fu-revolution.js"></script>
+		this.centerContent();
+		this.$container.on('resize', function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+			self.centerContent();
+		});
+
+		// fades in content on the plain template
+		if (this.templateName == 'plain') {
+			window.setTimeout(function () {
+				self.$contentContainer.addClass('in');
+			}, 500);
+		}
+
+		// swings sign in on the sign template
+		if (this.templateName == 'sign') {
+			$('.sign-container').animate({textIndent : 0}, {
+				step : function (now) {
+					$(this).css({
+						transform : 'rotate(' + now + 'deg)',
+						'transform-origin' : 'top center'
+					});
+				},
+				duration : 1000,
+				easing : 'easeOutBounce'
+			});
+		}
+	};
+
+
+	ErrorPage.prototype.createTimeRangeTag = function(start, end) {
+		return (
+			'<time utime=' + start + ' simple_format="MMM DD, YYYY HH:mm">' + start + '</time> - <time utime=' + end + ' simple_format="MMM DD, YYYY HH:mm">' + end + '</time>.'
+		)
+	};
+
+
+	ErrorPage.prototype.handleStatusFetchSuccess = function (pageType, data) {
+		if (pageType == '503') {
+			$('#replace-with-fetched-data').html(data.status.description);
+		} else {
+			if (!!data.scheduled_maintenances.length) {
+				var maint = data.scheduled_maintenances[0];
+				$('#replace-with-fetched-data').html(this.createTimeRangeTag(maint.scheduled_for, maint.scheduled_until));
+				$.fn.localizeTime();
+			}
+			else {
+				$('#replace-with-fetched-data').html('<em>(there are no active scheduled maintenances)</em>');
+			}
+		}
+	};
+
+
+	ErrorPage.prototype.handleStatusFetchFail = function (pageType) {
+		$('#replace-with-fetched-data').html('<em>(enter a valid Statuspage url)</em>');
+	};
+
+
+	ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
+		//console.log('in app.js fetch');
+		if (!pageUrl || !pageType || pageType == '404') return;
+
+		var url = ''
+			, self = this;
+
+		if (pageType == '503') {
+			url = pageUrl + '/api/v2/status.json';
+		}
+		else {
+			url = pageUrl + '/api/v2/scheduled-maintenances/active.json';
+		}
+
+		$.ajax({
+			type : "GET",
+			url : url,
+		}).success(function (data, status) {
+			//console.log('success');
+			self.handleStatusFetchSuccess(pageType, data);
+		}).fail(function (xhr, msg) {
+			//console.log('fail');
+			self.handleStatusFetchFail(pageType);
+		});
+
+	};
+	var ep = new ErrorPage('body', "503", "background");
+	ep.initialize();
+
+	// hack to make sure content stays centered >_<
+	$(window).on('resize', function() {
+		$('body').trigger('resize')
+	});
+
+</script>
+
+
+<!-- OneTrust Cookies Consent Notice (statuspage.io, en-GB) start -->
+<script src="https://cdn.cookielaw.org/consent/0800f092-2124-46ec-b11d-b4f48b677302.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript">
+	function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice (statuspage.io, en-GB) end -->
+
 </body>
 </html>
